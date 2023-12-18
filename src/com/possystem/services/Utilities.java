@@ -15,7 +15,7 @@ public class Utilities {
     //if how many he order it will be plus to rewards.
     //example (order * rewards) + qty 
     public static int uti(int qty,int order, int rewards) {
-        int serve = qty;
+        int serve =  qty;
         
         for (int i = qty; i <= order; i++) {
             serve += rewards;

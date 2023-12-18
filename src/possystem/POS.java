@@ -5,7 +5,9 @@
 package possystem;
 
 
+import com.possystem.services.Utilities;
 import com.possystem.user.Account;
+import com.possystem.user.Checking;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,8 +78,6 @@ public class POS extends javax.swing.JFrame {
         display = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         nameOfCustomer = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        qty = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -266,7 +266,7 @@ public class POS extends javax.swing.JFrame {
                 .addComponent(icecream)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(choco)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jLabel4.setText("SubTotal");
@@ -305,8 +305,6 @@ public class POS extends javax.swing.JFrame {
 
         jLabel9.setText("Name ");
 
-        jLabel10.setText("QTY");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -331,7 +329,6 @@ public class POS extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel10)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
@@ -340,23 +337,20 @@ public class POS extends javax.swing.JFrame {
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Sub, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(nameOfCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel6)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(jLabel6))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                                    .addComponent(payment, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                                    .addComponent(qty)
-                                                    .addComponent(Vat))))))))
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(payment, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(65, 65, 65)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(Vat)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(47, 47, 47))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -376,14 +370,10 @@ public class POS extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(Vat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(qty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -392,7 +382,7 @@ public class POS extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(compute)
                 .addGap(19, 19, 19))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -495,19 +485,19 @@ public class POS extends javax.swing.JFrame {
 
     private void computeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeActionPerformed
 
-        Account acc=new Account();
+       
         try{
+             Account acc=new Account();
+             Checking check=new Checking();
             
             Double userMoney = Double.parseDouble(payment.getText());
             String name= nameOfCustomer.getText();
             
             
             double sub = 0;
-            double TAXRATE = 0.12;
+            double TAXRATE = check.getServiceCharge();
             double vat = 0;
-            double total = 0;
-            double paymentAmount = 0;
-            double change = 0;
+            double total = 0;                       
             double userBalance;
             
             
@@ -534,20 +524,25 @@ public class POS extends javax.swing.JFrame {
             }
             
             Vat.setText(Double.toString(TAXRATE)); // to print the vat
-            Sub.setText(Double.toString(sub));
-            //System.out.println(sub);//to add all selected choices
-            //System.out.println("The customer name is: "+name);
+            Sub.setText(Double.toString(sub));//to add all selected choices
+            int order=(int) sub;
             
-            //vat=sub * TAXRATE;
-            total = TAXRATE  + sub; //to calculate the total
+           
+            
+            //vat=sub + TAXRATE;
+            total = (TAXRATE * sub)+sub; //to calculate the total
+            
             Total.setText(Double.toString(total));
             //System.out.println("The total is: "+total); 
                 
             userBalance=userMoney - total;
             balance.setText(Double.toString(userBalance));
+            
             acc=new Account(name,userBalance);
+            //acc=new Account(uti(sub,sub,10.0));
             System.out.println(acc);
             //System.out.println("your balance is: "+ userBalance);
+            
             }catch(NumberFormatException ex){
                 System.out.println("Please fill the information needs!");
             } 
@@ -610,7 +605,6 @@ public class POS extends javax.swing.JFrame {
     private javax.swing.JLabel display;
     private javax.swing.JRadioButton icecream;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -627,9 +621,11 @@ public class POS extends javax.swing.JFrame {
     private javax.swing.JTextField nameOfCustomer;
     private javax.swing.JTextField payment;
     private javax.swing.JRadioButton potato;
-    private javax.swing.JTextField qty;
     private javax.swing.JRadioButton roast;
     private javax.swing.JRadioButton salad;
     private javax.swing.JRadioButton water;
     // End of variables declaration//GEN-END:variables
+
+   
+    
 }

@@ -13,7 +13,7 @@ import com.possystem.services.Utilities;
 public class Account {
     
      private final String name; //customer name
-    private final double balance; //customers balance
+     private final double balance; //customers balance
     
     Utilities uti=new Utilities();
     public Account(String name, double balance) {
