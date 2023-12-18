@@ -12,13 +12,14 @@ public class Checking extends Account{
     
     //now this service charge is like a vat or tax.
     private double serviceCharge=.15;
-
+    
+    public Checking(){
+        this.serviceCharge=.15;
+    }
     public Checking(String name, double balance, double serviceCharge) {
         super(name, balance);
         this.serviceCharge =- serviceCharge; //processing part
-        //now it calculates the service charge to the balance
-        
-        //this.serviceCharge =- balance;
+       
         
         
     }
